@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="400" style="border: 2px solid black"></canvas>
+<script>
+
+    //khoi tao lop hinh chu nhat
+    let recTunGle = function (a, b) {
+        this.a = a;
+        this.b = b;
+        //tao ham lay gia tri
+        this.getA = function () {
+            return this.a;
+        }
+        this.getB = function () {
+            return this.b;
+        }
+        //tao ham set cho ab
+        this.setA = function (a) {
+            this.a = a;
+        }
+        this.setB = function (b) {
+            this.b = b;
+        }
+        //tinh dien tich
+        this.getS = function () {
+            return this.a * this.b;
+        }
+        //tinh chu vi
+        this.getV = function () {
+            return (this.a + this.b) * 2;
+        }
+    };
+    let cd = Number(prompt("Nhap chieu dai: ", ""));
+    let cr = Number(prompt("Nhap chieu rong:", ""));
+    let rect = new recTunGle(cd, cr);
+    rect.getA();
+    rect.getB();
+    rect.getS();
+    rect.getV();
+    alert("Chiều dài vừa nhập là: " + rect.getA() + "và chiều rộng vừa nhập là: " + rect.getB() + " Có diện tích là: " + rect.getS());
+    alert("Chu vi của hình chữ nhật là:  " + rect.getV());
+
+    function createTungle() {
+        let c = document.getElementById("myCanvas");
+        let ctx = c.getContext("2d");
+        ctx.fillStyle = "#a40100";
+        ctx.fillRect(100, 100, Math.random() * rect.getA(), Math.random() * rect.getB());
+        //xay dung ham get chieu dai va chieu rong
+    }
+
+    createTungle();
+</script>
+</body>
+</html>
